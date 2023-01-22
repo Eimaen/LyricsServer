@@ -8,7 +8,6 @@ using MusixmatchClientLib.API.Model.Types;
 using MusixmatchClientLib.Auth;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LyricsServer.Server
 {
