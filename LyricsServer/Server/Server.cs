@@ -211,7 +211,7 @@ namespace LyricsServer.Server
             }
         }
 
-        public Task Start(string prefix)
+        public Task Start(string[] prefixes)
         {
             string token;
             if (File.Exists(TokenFile))
@@ -220,7 +220,8 @@ namespace LyricsServer.Server
                 File.WriteAllText(TokenFile, token = new MusixmatchToken().Token);
             Client = new MusixmatchClient(token);
             Listener = new HttpListener();
-            Listener.Prefixes.Add(prefix);
+            foreach (string prefix in prefixes)
+                Listener.Prefixes.Add(prefix);
             Listener.Start();
             return ConnectionHandler = HandleIncomingConnections();
         }

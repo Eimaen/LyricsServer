@@ -7,7 +7,7 @@ namespace LyricsServer
         private static void Main(string[] args)
         {
             MusixServer server = new MusixServer();
-            Task handlerTask = server.Start("http://localhost:7545/");
+            Task handlerTask = server.Start(new string[] { "http://localhost:7545/" });
             handlerTask.GetAwaiter().GetResult();
         }
     }
